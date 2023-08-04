@@ -154,7 +154,7 @@ set(ASSIMP_TARGET assimp)
 set(ASSIMP_BUILD_OPTIONS -DASSIMP_BUILD_ASSIMP_TOOLS:BOOL=OFF -DASSIMP_BUILD_TESTS:BOOL=OFF -DASSIMP_BUILD_DRACO:BOOL=ON)
 set(ASSIMP_AV_VERSION 5.2.5)
 ExternalProject_Add(${ASSIMP_TARGET}
-      URL https://github.com/assimp/assimp/archive/refs/tags/v5.2.5.tar.gz
+      URL https://ghproxy.com/https://github.com/assimp/assimp/archive/refs/tags/v5.2.5.tar.gz
       URL_HASH MD5=0b5a5a2714f1126b9931cdb95f512c91
       DOWNLOAD_DIR ${BUILD_DIR}/download/assimp
       PREFIX ${BUILD_DIR}
@@ -186,7 +186,7 @@ elseif(UNIX)
 endif()
 set(GEOGRAM_TARGET geogram)
 ExternalProject_Add(${GEOGRAM_TARGET}
-       URL https://github.com/BrunoLevy/geogram/releases/download/v1.8.3/geogram_1.8.3.tar.gz
+       URL https://ghproxy.com/https://github.com/BrunoLevy/geogram/releases/download/v1.8.3/geogram_1.8.3.tar.gz
        URL_HASH MD5=06fa5a70c05830d103ff71c55da5bb53
        DOWNLOAD_DIR ${BUILD_DIR}/download/geogram
        PREFIX ${BUILD_DIR}
@@ -243,7 +243,7 @@ endif()
 # Add Tbb
 set(TBB_TARGET tbb)
 ExternalProject_Add(${TBB_TARGET}
-       URL https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.8.0.tar.gz
+       URL https://ghproxy.com/https://github.com/oneapi-src/oneTBB/archive/refs/tags/v2021.8.0.tar.gz
        URL_HASH MD5=392421c6f33ebd00edb57eba36054da9
        DOWNLOAD_DIR ${BUILD_DIR}/download/tbb
        PREFIX ${BUILD_DIR}
@@ -300,7 +300,7 @@ set(EIGEN_CMAKE_FLAGS
 # Add Expat: XML parser
 set(EXPAT_TARGET expat)
 ExternalProject_Add(${EXPAT_TARGET}
-       GIT_REPOSITORY https://github.com/libexpat/libexpat.git
+       GIT_REPOSITORY https://ghproxy.com/https://github.com/libexpat/libexpat.git
        GIT_TAG R_2_5_0
        PREFIX ${BUILD_DIR}
        BUILD_IN_SOURCE 0
@@ -321,7 +321,7 @@ ExternalProject_Add(${EXPAT_TARGET}
 # Add ONNXRuntime
 set(ONNXRUNTIME_TARGET onnxruntime)
 ExternalProject_Add(${ONNXRUNTIME_TARGET}
-      URL https://github.com/microsoft/onnxruntime/releases/download/v1.12.0/onnxruntime-linux-x64-1.12.0.tgz
+      URL https://ghproxy.com/https://github.com/microsoft/onnxruntime/releases/download/v1.12.0/onnxruntime-linux-x64-1.12.0.tgz
       URL_HASH SHA256=5d503ce8540358b59be26c675e42081be14a3e833a5301926f555451046929c5
       DOWNLOAD_DIR ${BUILD_DIR}/download/onnxruntime
       SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/onnxruntime
@@ -340,9 +340,9 @@ if(AV_BUILD_OPENGV)
 set(OPENGV_TARGET opengv)
 ExternalProject_Add(${OPENGV_TARGET}
        # Official repository
-       # GIT_REPOSITORY https://github.com/laurentkneip/opengv.git
+       # GIT_REPOSITORY https://ghproxy.com/https://github.com/laurentkneip/opengv.git
        # Our fork, with a fix:
-       GIT_REPOSITORY https://github.com/alicevision/opengv.git
+       GIT_REPOSITORY https://ghproxy.com/https://github.com/alicevision/opengv.git
        # Use a custom commit with a fix to override the cxx standard from cmake command line
        GIT_TAG 65f7edccf5044d445d305580f79c50c2efcbd438
        PREFIX ${BUILD_DIR}
@@ -365,7 +365,7 @@ endif()
 if(AV_BUILD_LAPACK)
 set(LAPACK_TARGET lapack)
 ExternalProject_Add(${LAPACK_TARGET}
-       URL https://github.com/Reference-LAPACK/lapack/archive/v3.11.0.tar.gz
+       URL https://ghproxy.com/https://github.com/Reference-LAPACK/lapack/archive/v3.11.0.tar.gz
        URL_HASH MD5=595b064fd448b161cd711fe346f498a7
        DOWNLOAD_DIR ${BUILD_DIR}/download/lapack
        PREFIX ${BUILD_DIR}
@@ -421,7 +421,7 @@ else()
     set(SUITESPARSE_INTERNAL_MAKE_CMD VERBOSE=1 MPFR_ROOT=${CMAKE_INSTALL_PREFIX} GMP_ROOT=${CMAKE_INSTALL_PREFIX} LD_LIBRARY_PATH=${LD_LIBRARY_PATH}:${CMAKE_INSTALL_PREFIX}/${CMAKE_INSTALL_LIBDIR} $(MAKE) -j${AV_BUILD_DEPENDENCIES_PARALLEL} BLAS_LIBRARIES="${BLAS_LIBRARIES}" BLAS="${BLAS_LIBRARIES}" LAPACK="${LAPACK_LIBRARIES}" LAPACK_LIBRARIES="${LAPACK_LIBRARIES}")
 endif()
 ExternalProject_Add(${SUITESPARSE_TARGET}
-       URL https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v7.0.1.tar.gz
+       URL https://ghproxy.com/https://github.com/DrTimothyAldenDavis/SuiteSparse/archive/v7.0.1.tar.gz
        URL_HASH MD5=d31bbe2a26dced338b23e71f7c9b541a
        DOWNLOAD_DIR ${BUILD_DIR}/download/suitesparse
        PREFIX ${BUILD_DIR}
@@ -442,7 +442,7 @@ endif()
 # Add ceres-solver: A Nonlinear Least Squares Minimizer
 set(CERES_TARGET ceres)
 ExternalProject_Add(${CERES_TARGET}
-       GIT_REPOSITORY https://github.com/ceres-solver/ceres-solver
+       GIT_REPOSITORY https://ghproxy.com/https://github.com/ceres-solver/ceres-solver
        GIT_TAG a3a062d72cc8c0f5f1f09b36d8b7c1ea3bef4d73  # 2022/12/19
        PREFIX ${BUILD_DIR}
        BUILD_IN_SOURCE 0
@@ -469,7 +469,7 @@ set(CERES_CMAKE_FLAGS ${SUITESPARSE_CMAKE_FLAGS} -DCeres_DIR=${CMAKE_INSTALL_PRE
 set(OPENEXR_TARGET openexr)
 ExternalProject_Add(${OPENEXR_TARGET}
       # vfxplatform CY2022: 3.1.x
-      URL https://github.com/AcademySoftwareFoundation/openexr/archive/v3.1.6.tar.gz
+      URL https://ghproxy.com/https://github.com/AcademySoftwareFoundation/openexr/archive/v3.1.6.tar.gz
       URL_HASH MD5=da5daf4d7954c034921e7201bf815938
       DOWNLOAD_DIR ${BUILD_DIR}/download/openexr
       PREFIX ${BUILD_DIR}
@@ -549,7 +549,7 @@ if(AV_BUILD_JPEG)
 set(JPEG_TARGET turbojpeg)
 # Add turbojpeg
 ExternalProject_Add(${JPEG_TARGET}
-       URL https://github.com/libjpeg-turbo/libjpeg-turbo/archive/2.1.5.1.tar.gz
+       URL https://ghproxy.com/https://github.com/libjpeg-turbo/libjpeg-turbo/archive/2.1.5.1.tar.gz
        URL_HASH MD5=33f72421d83ba487ff7b5c81e8765185
        DOWNLOAD_DIR ${BUILD_DIR}/download/libjpeg-turbo
        PREFIX ${BUILD_DIR}
@@ -575,7 +575,7 @@ if(AV_BUILD_LIBRAW)
 set(LIBRAW_TARGET libraw)
 # Add libraw
 ExternalProject_Add(libraw_cmake
-      GIT_REPOSITORY https://github.com/LibRaw/LibRaw-cmake
+      GIT_REPOSITORY https://ghproxy.com/https://github.com/LibRaw/LibRaw-cmake
       GIT_TAG 6e26c9e73677dc04f9eb236a97c6a4dc225ba7e8
       PREFIX ${BUILD_DIR}
       BUILD_IN_SOURCE 0
@@ -589,7 +589,7 @@ ExternalProject_Add(libraw_cmake
       INSTALL_COMMAND ""
       )
 ExternalProject_Add(${LIBRAW_TARGET}
-      GIT_REPOSITORY https://github.com/LibRaw/LibRaw
+      GIT_REPOSITORY https://ghproxy.com/https://github.com/LibRaw/LibRaw
       GIT_TAG 0.21.1
       PREFIX ${BUILD_DIR}
       BUILD_IN_SOURCE 0
@@ -622,7 +622,7 @@ set(BOOST_TARGET boost)
 # vfxplatform CY2021: 1.73
 # vfxplatform CY2022: 1.76
 ExternalProject_Add(${BOOST_TARGET}
-      #URL https://github.com/alicevision/AliceVisionDependencies/releases/download/boost-src-1.80.0/boost_1_80_0.tar.bz2
+      #URL https://ghproxy.com/https://github.com/alicevision/AliceVisionDependencies/releases/download/boost-src-1.80.0/boost_1_80_0.tar.bz2
       URL https://boostorg.jfrog.io/artifactory/main/release/1.80.0/source/boost_1_80_0.tar.bz2
       URL_HASH MD5=df7dc2fc6de751753198a5bf70210da7
       DOWNLOAD_DIR ${BUILD_DIR}/download/boost
@@ -722,7 +722,7 @@ endif()
 # Add OpenImageIO
 set(OPENIMAGEIO_TARGET openimageio)
 ExternalProject_Add(${OPENIMAGEIO_TARGET}
-      URL https://github.com/OpenImageIO/oiio/archive/refs/tags/v2.4.9.0.tar.gz
+      URL https://ghproxy.com/https://github.com/OpenImageIO/oiio/archive/refs/tags/v2.4.9.0.tar.gz
       URL_HASH MD5=7da92a7d6029921a8599a977ff1efa2a
       DOWNLOAD_DIR ${BUILD_DIR}/download/oiio
       PREFIX ${BUILD_DIR}
@@ -761,7 +761,7 @@ set(OPENIMAGEIO_CMAKE_FLAGS -DOpenImageIO_DIR=${CMAKE_INSTALL_PREFIX})
 set(ALEMBIC_TARGET alembic)
 ExternalProject_Add(${ALEMBIC_TARGET}
       # vfxplatform CY2022 1.8.x
-      URL https://github.com/alembic/alembic/archive/1.8.5.tar.gz
+      URL https://ghproxy.com/https://github.com/alembic/alembic/archive/1.8.5.tar.gz
       URL_HASH MD5=fcd5b5492a005057e11b601b60ac9a49
       DOWNLOAD_DIR ${BUILD_DIR}/download/alembic
       PREFIX ${BUILD_DIR}
@@ -784,7 +784,7 @@ set(ALEMBIC_CMAKE_FLAGS -DAlembic_DIR:PATH=${CMAKE_INSTALL_PREFIX}/lib/cmake/Ale
 if(AV_BUILD_OPENCV)
 set(OPENCV_TARGET opencv)
 ExternalProject_Add(opencv_contrib
-  URL https://github.com/opencv/opencv_contrib/archive/4.7.0.zip
+  URL https://ghproxy.com/https://github.com/opencv/opencv_contrib/archive/4.7.0.zip
   URL_HASH MD5=a3969f1db6732340e492c0323178f6f1
   DOWNLOAD_DIR ${BUILD_DIR}/download/opencv_contrib
   SOURCE_DIR ${CMAKE_CURRENT_BINARY_DIR}/opencv_contrib
@@ -796,7 +796,7 @@ ExternalProject_Add(opencv_contrib
 )
 ExternalProject_Add(${OPENCV_TARGET}
   DEPENDS opencv_contrib ${TBB_TARGET} ${ZLIB_TARGET} ${OPENEXR_TARGET} ${TIFF_TARGET} ${PNG_TARGET} ${JPEG_TARGET} ${LIBRAW_TARGET} ${FFMPEG_TARGET}
-  URL https://github.com/opencv/opencv/archive/4.7.0.zip
+  URL https://ghproxy.com/https://github.com/opencv/opencv/archive/4.7.0.zip
   URL_HASH MD5=481a9ee5b0761978832d02d8861b8156
   DOWNLOAD_DIR ${BUILD_DIR}/download/opencv
   UPDATE_COMMAND ""
@@ -840,7 +840,7 @@ endif()
 if(AV_BUILD_CCTAG)
 set(CCTAG_TARGET cctag)
 ExternalProject_Add(${CCTAG_TARGET}
-      GIT_REPOSITORY https://github.com/alicevision/CCTag
+      GIT_REPOSITORY https://ghproxy.com/https://github.com/alicevision/CCTag
       GIT_TAG v1.0.3
       PREFIX ${BUILD_DIR}
       BUILD_IN_SOURCE 0
@@ -872,7 +872,7 @@ endif()
 if(AV_BUILD_APRILTAG)
 set(APRILTAG_TARGET apriltag)
 ExternalProject_Add(${APRILTAG_TARGET}
-      GIT_REPOSITORY https://github.com/AprilRobotics/apriltag
+      GIT_REPOSITORY https://ghproxy.com/https://github.com/AprilRobotics/apriltag
       GIT_TAG v3.2.0
       PREFIX ${BUILD_DIR}
       BUILD_IN_SOURCE 0
@@ -895,7 +895,7 @@ endif()
 if(AV_BUILD_POPSIFT)
 set(POPSIFT_TARGET popsift)
 ExternalProject_Add(${POPSIFT_TARGET}
-      GIT_REPOSITORY https://github.com/alicevision/popsift
+      GIT_REPOSITORY https://ghproxy.com/https://github.com/alicevision/popsift
       GIT_TAG 4b4b2478d5f0cdb6c4215a031572e951c0c2502e
       PREFIX ${BUILD_DIR}
       BUILD_IN_SOURCE 0
@@ -919,7 +919,7 @@ endif()
 if(AV_BUILD_COINUTILS)
 set(COINUTILS_TARGET coinutils)
 ExternalProject_Add(${COINUTILS_TARGET}
-      GIT_REPOSITORY https://github.com/alicevision/CoinUtils
+      GIT_REPOSITORY https://ghproxy.com/https://github.com/alicevision/CoinUtils
       GIT_TAG b29532e31471d26dddee99095da3340e80e8c60c
       PREFIX ${BUILD_DIR}
       BUILD_IN_SOURCE 0
@@ -939,7 +939,7 @@ endif()
 if(AV_BUILD_OSI)
 set(OSI_TARGET osi)
 ExternalProject_Add(${OSI_TARGET}
-      GIT_REPOSITORY https://github.com/alicevision/Osi
+      GIT_REPOSITORY https://ghproxy.com/https://github.com/alicevision/Osi
       GIT_TAG 52bafbabf8d29bcfd57818f0dd50ee226e01db7f
       PREFIX ${BUILD_DIR}
       BUILD_IN_SOURCE 0
@@ -960,7 +960,7 @@ endif()
 if(AV_BUILD_CLP)
 set(CLP_TARGET clp)
 ExternalProject_Add(${CLP_TARGET}
-      GIT_REPOSITORY https://github.com/alicevision/Clp
+      GIT_REPOSITORY https://ghproxy.com/https://github.com/alicevision/Clp
       GIT_TAG 4da587acebc65343faafea8a134c9f251efab5b9
       PREFIX ${BUILD_DIR}
       BUILD_IN_SOURCE 0
@@ -982,7 +982,7 @@ if(AV_BUILD_FLANN)
     # add lz4 for flann
     set(LZ4_TARGET lz4)
     ExternalProject_Add(${LZ4_TARGET}
-            GIT_REPOSITORY https://github.com/lz4/lz4
+            GIT_REPOSITORY https://ghproxy.com/https://github.com/lz4/lz4
             GIT_TAG v1.9.4
             PREFIX ${BUILD_DIR}
             BUILD_IN_SOURCE 0
@@ -1001,7 +1001,7 @@ if(AV_BUILD_FLANN)
 
     set(FLANN_TARGET flann)
     ExternalProject_Add(${FLANN_TARGET}
-            GIT_REPOSITORY https://github.com/alicevision/flann
+            GIT_REPOSITORY https://ghproxy.com/https://github.com/alicevision/flann
             GIT_TAG 46e72429ef60ce9c413fa926ac7729f8dee96395
             PREFIX ${BUILD_DIR}
             BUILD_IN_SOURCE 0
@@ -1033,7 +1033,7 @@ if(AV_BUILD_PCL)
     # add point cloud library
     set(PCL_TARGET pcl)
     ExternalProject_Add(${PCL_TARGET}
-            URL https://github.com/PointCloudLibrary/pcl/archive/refs/tags/pcl-1.13.0.tar.gz
+            URL https://ghproxy.com/https://github.com/PointCloudLibrary/pcl/archive/refs/tags/pcl-1.13.0.tar.gz
             URL_HASH MD5=987a5f6e440407a2bcae10c1022568b0
             DOWNLOAD_DIR ${BUILD_DIR}/download/${PCL_TARGET}
             PREFIX ${BUILD_DIR}
@@ -1068,7 +1068,7 @@ endif()
 if(AV_BUILD_USD)
     set(USD_TARGET pxr)
     ExternalProject_Add(${USD_TARGET}
-        GIT_REPOSITORY https://github.com/PixarAnimationStudios/USD.git
+        GIT_REPOSITORY https://ghproxy.com/https://github.com/PixarAnimationStudios/USD.git
         GIT_TAG v23.05
         PREFIX ${BUILD_DIR}
         BUILD_IN_SOURCE 0
